@@ -1,0 +1,11 @@
+{
+    "name": "caloy/test",
+    "autoload": {
+        "psr-4": {
+            "Caloy\\Test\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.5"
+    }
+}
