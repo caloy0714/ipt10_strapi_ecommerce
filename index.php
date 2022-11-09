@@ -5,7 +5,6 @@ use GuzzleHttp\Client;
 function getHome() {
     $token = '4afe2e970d1dc1b9654dd3224b71a85a4e0702e4beff556ef5d756a96c546f3ee139c653ab74661118def414d1de34525836f863e6cf034625cb6a6ae533cda9a4052ccdf333923796575c90f79ce80414bf45ed636206fe4c371d9986e7cfdca636203744db032945a966faa5c4e39a00cae79f735b7df234e09cbaec6732b9';
 
-    try {
         $client = new Client([
             'base_uri' => 'http://localhost:1337/api/'
         ]);
@@ -20,13 +19,6 @@ function getHome() {
         $body = $response->getBody();
         $decoded_response = json_decode($body);
         return $decoded_response;
-    } catch (Exception $e) {
-        error_log($e->getMessage());
-        echo '<pre>';
-        var_dump($e);
-    }
-    return null; 
-}
 
 $home = getHome();
 $content = $home->data->attributes;
@@ -168,6 +160,7 @@ $content = $home->data->attributes;
     <div class="testimonial">
         <div class="small-container">
             <div class="row">
+              <!-- LOOP? -->
                 <?php foreach ($content->testimonials as $testimonial){?>
                     <div class="col-3">
                     <i class="fa fa-quote-left"></i>
